@@ -234,7 +234,7 @@
         // Supabase Config
         const supabaseUrl = 'https://qxgwxnlvlokckcxvnkph.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4Z3d4bmx2bG9rY2tjeHZua3BoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzMTk3NzYsImV4cCI6MjA4ODg5NTc3Nn0.Zud7tkNoG-CyuuwdpgWel41G0a8K9f9-2EReGV5YTBM';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        const _supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         // UI Elements
         const loginScreen = document.getElementById('loginScreen');
@@ -277,7 +277,7 @@
         async function loadData() {
             tableContainer.innerHTML = 'Cargando datos...';
             // Traer reservas ordenadas por fecha y después horario
-            const { data, error } = await supabase
+            const { data, error } = await _supabase
                 .from('reservas')
                 .select('*')
                 .order('fecha', { ascending: true })
@@ -371,11 +371,11 @@
                     comentarios: 'Bloqueado por el administrador'
                 }));
 
-                const { error } = await supabase.from('reservas').insert(inserts);
+                const { error } = await _supabase.from('reservas').insert(inserts);
                 if (error) alert('Error al bloquear');
             } else {
                 // Insert individual
-                const { error } = await supabase.from('reservas').insert([{
+                const { error } = await _supabase.from('reservas').insert([{
                     nombre: 'ADMIN',
                     telefono: '000',
                     servicio: 'BLOQUEO',
@@ -396,7 +396,7 @@
         // Delete Item (Libera)
         async function deleteItem(id) {
             if(confirm("¿Estás seguro de eliminar este registro? Si es una reserva, se borrará en la base de datos y quedará el horario libre. Si es un bloqueo, se liberará.")) {
-                const { error } = await supabase.from('reservas').delete().eq('id', id);
+                const { error } = await _supabase.from('reservas').delete().eq('id', id);
                 if(error) {
                     alert("No se pudo borrar. Puede que permisos de DELETE no estén configurados en Supabase.");
                 } else {
