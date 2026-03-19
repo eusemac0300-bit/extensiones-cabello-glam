@@ -331,36 +331,35 @@
             border-radius: var(--radius-md);
             background: #fff;
         }
-        /* Marketing Hub v3: AI STUDIO (DARK) */
-        .mkt-studio { background: #0f172a; color: #f8fafc; padding: 2rem; border-radius: var(--radius-xl); margin-top: 1rem; }
-        .mkt-header { background: rgba(30, 41, 59, 0.7); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(255, 105, 180, 0.2); }
-        .mkt-header h2 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; }
+        /* Marketing Hub v3: AI STUDIO (¡Qué Glam! Style) */
+        .mkt-studio { background: #fff; color: var(--charcoal); padding: 2rem; border-radius: var(--radius-xl); margin-top: 1rem; border: 1px solid #eee; }
+        .mkt-header { background: var(--bg-soft); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(255, 105, 180, 0.3); }
+        .mkt-header h2 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--charcoal); }
         .mkt-header span { color: var(--primary); font-style: italic; }
 
         .mkt-layout { display: grid; grid-template-columns: 300px 1fr 300px; gap: 2rem; }
         
-        .mkt-panel { background: #1e293b; padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
-        .mkt-panel h3 { font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .mkt-panel { background: #fff; padding: 1.5rem; border-radius: 16px; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .mkt-panel h3 { font-size: 0.9rem; color: var(--charcoal-light); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
         
-        .mkt-select-btn { width: 100%; text-align: left; padding: 1rem; background: #334155; border: 1px solid #475569; color: #fff; border-radius: 12px; margin-bottom: 1rem; cursor: pointer; transition: all 0.2s; }
-        .mkt-select-btn:hover { border-color: var(--primary); background: #3b4b61; }
+        .mkt-select-btn { width: 100%; text-align: left; padding: 1rem; background: #fff; border: 1px solid #eee; color: var(--charcoal); border-radius: 12px; margin-bottom: 1rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+        .mkt-select-btn:hover { border-color: var(--primary); background: var(--bg-soft); }
         
         .mkt-option-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1.5rem; }
-        .mkt-opt { padding: 0.75rem; background: #334155; border: 1px solid #475569; border-radius: 10px; font-size: 0.75rem; cursor: pointer; text-align: center; transition: all 0.2s; }
+        .mkt-opt { padding: 0.75rem; background: #fdfdfd; border: 1px solid #eee; border-radius: 10px; font-size: 0.75rem; cursor: pointer; text-align: center; transition: all 0.2s; color: #666; font-weight: 700; }
         .mkt-opt:hover, .mkt-opt.active { border-color: var(--primary); background: rgba(255, 105, 180, 0.1); color: var(--primary); }
 
-        .mkt-preview-final { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); border-radius: 24px; padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; min-height: 500px; box-shadow: inset 0 0 100px rgba(0,0,0,0.5); }
-        .mkt-canvas-container { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1/1; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .mkt-preview-final { background: var(--bg-soft); border-radius: 24px; padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; min-height: 500px; box-shadow: inset 0 0 40px rgba(0,0,0,0.02); border: 1px solid #eee; }
+        .mkt-canvas-container { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1/1; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15); border: 4px solid #fff; }
         #mktCanvas { width: 100%; height: 100%; background: #fff; }
 
         .btn-regenerate { width: 100%; padding: 1rem; background: var(--primary); color: #fff; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 15px var(--primary-glow); }
         
-        .mkt-copy-card { background: #1e293b; border-radius: 16px; padding: 1.5rem; height: fit-content; }
-        .mkt-copy-text { font-size: 0.9rem; line-height: 1.6; color: #cbd5e1; white-space: pre-wrap; margin-top: 1rem; }
+        .mkt-copy-card { background: #fff; border-radius: 16px; padding: 1.5rem; height: fit-content; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .mkt-copy-text { font-size: 0.9rem; line-height: 1.6; color: var(--charcoal-light); white-space: pre-wrap; margin-top: 1rem; }
         
         .loader-mkt { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary); }
         
-        /* Mobile adjustment for high-end mkt */
         @media (max-width: 1100px) {
             .mkt-layout { grid-template-columns: 1fr; }
             .mkt-preview-final { min-height: 400px; }
@@ -529,16 +528,14 @@
                 </div>
 
                 <!-- Extras -->
-                <div style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+                <div style="margin-top: 3rem; border-top: 1px solid #eee; padding-top: 2rem;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
-                        <h3>BIBLIOTECA DE RECURSOS</h3>
+                        <h3 style="color:var(--charcoal)">BIBLIOTECA DE RECURSOS</h3>
                         <button class="btn btn-sm" onclick="exportCarouselZip()">Exportar Todo (.ZIP)</button>
                     </div>
                     <div class="asset-gallery" id="assetGallery"></div>
                 </div>
             </div>
-        </div>      </div>
-        </div>
         </div>
 
     </div>
