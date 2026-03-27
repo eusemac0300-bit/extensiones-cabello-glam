@@ -15,13 +15,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <style>
         :root {
-            --primary: #FF69B4;
-            --primary-dark: #e84da0;
-            --charcoal: #4B0082;
-            --bg-soft: #FDF2F8;
-            --white: #FFFFFF;
+            /* Luminous Editorial Palette */
+            --gold: #C5A059;
+            --gold-light: #DFD3B3;
+            --charcoal: #1A1A1A;
+            --charcoal-soft: #333333;
+            --off-white: #FAF9F6;
+            --pure-white: #FFFFFF;
+            --gray-light: #F1F1F1;
+            --gray-medium: #E2E8F0;
+            --primary: var(--gold);
+            --primary-dark: #A68045;
+            --radius-lg: 1.5rem;
             --radius-md: 1rem;
+            --radius-sm: 0.5rem;
             --font: 'Nunito', sans-serif;
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.04);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         body {
@@ -331,39 +341,248 @@
             border-radius: var(--radius-md);
             background: #fff;
         }
-        /* Marketing Hub v3: AI STUDIO (¡Qué Glam! Style) */
-        .mkt-studio { background: #fff; color: var(--charcoal); padding: 2rem; border-radius: var(--radius-xl); margin-top: 1rem; border: 1px solid #eee; }
-        .mkt-header { background: var(--bg-soft); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(255, 105, 180, 0.3); }
-        .mkt-header h2 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--charcoal); }
-        .mkt-header span { color: var(--primary); font-style: italic; }
-
-        .mkt-layout { display: grid; grid-template-columns: 300px 1fr 300px; gap: 2rem; }
-        
-        .mkt-panel { background: #fff; padding: 1.5rem; border-radius: 16px; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .mkt-panel h3 { font-size: 0.9rem; color: var(--charcoal-light); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
-        
-        .mkt-select-btn { width: 100%; text-align: left; padding: 1rem; background: #fff; border: 1px solid #eee; color: var(--charcoal); border-radius: 12px; margin-bottom: 1rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-        .mkt-select-btn:hover { border-color: var(--primary); background: var(--bg-soft); }
-        
-        .mkt-option-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1.5rem; }
-        .mkt-opt { padding: 0.75rem; background: #fdfdfd; border: 1px solid #eee; border-radius: 10px; font-size: 0.75rem; cursor: pointer; text-align: center; transition: all 0.2s; color: #666; font-weight: 700; }
-        .mkt-opt:hover, .mkt-opt.active { border-color: var(--primary); background: rgba(255, 105, 180, 0.1); color: var(--primary); }
-
-        .mkt-preview-final { background: var(--bg-soft); border-radius: 24px; padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; min-height: 500px; box-shadow: inset 0 0 40px rgba(0,0,0,0.02); border: 1px solid #eee; }
-        .mkt-canvas-container { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1/1; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15); border: 4px solid #fff; }
-        #mktCanvas { width: 100%; height: 100%; background: #fff; }
-
-        .btn-regenerate { width: 100%; padding: 1rem; background: var(--primary); color: #fff; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 15px var(--primary-glow); }
-        
-        .mkt-copy-card { background: #fff; border-radius: 16px; padding: 1.5rem; height: fit-content; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .mkt-copy-text { font-size: 0.9rem; line-height: 1.6; color: var(--charcoal-light); white-space: pre-wrap; margin-top: 1rem; }
-        
-        .loader-mkt { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--primary); }
-        
-        @media (max-width: 1100px) {
-            .mkt-layout { grid-template-columns: 1fr; }
-            .mkt-preview-final { min-height: 400px; }
+        /* ================= MARKETING LAB v4: LUMINOUS EDITORIAL ================= */
+        .mkt-v4-container {
+            display: flex;
+            background: var(--gray-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            min-height: 800px;
+            margin-top: 1rem;
+            border: 1px solid var(--gray-medium);
         }
+
+        /* Sidebar Interno */
+        .mkt-sidebar {
+            width: 200px;
+            background: var(--pure-white);
+            border-right: 1px solid var(--gray-medium);
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mkt-side-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #666;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .mkt-side-btn .material-symbols-outlined { font-size: 1.2rem; }
+        .mkt-side-btn:hover { background: var(--off-white); color: var(--charcoal); }
+        .mkt-side-btn.active { background: var(--off-white); color: var(--gold); }
+
+        .btn-upgrade {
+            margin-top: auto;
+            background: linear-gradient(135deg, #A68045, #C5A059);
+            color: #fff;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.75rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);
+        }
+
+        /* Main Content Area */
+        .mkt-content {
+            flex: 1;
+            background: var(--pure-white);
+            padding: 2.5rem;
+            overflow-y: auto;
+        }
+
+        .mkt-v4-header { margin-bottom: 2.5rem; }
+        .mkt-v4-header h2 { font-size: 1.8rem; font-weight: 900; margin: 0; color: var(--charcoal); }
+        .mkt-v4-header p { color: #888; margin-top: 0.5rem; font-size: 0.9rem; }
+
+        /* Grid de Configuración */
+        .mkt-v4-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Caja de Carga (Dotted) */
+        .upload-box-v4 {
+            border: 2px dashed var(--gray-medium);
+            border-radius: var(--radius-md);
+            padding: 3rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: var(--off-white);
+            transition: all 0.3s;
+        }
+        .upload-box-v4:hover { border-color: var(--gold); background: #fff; }
+        .upload-icon-circle {
+            width: 60px;
+            height: 60px;
+            background: #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        /* Form Controls */
+        .mkt-control-group { margin-bottom: 2rem; }
+        .mkt-control-group label { display: block; text-transform: uppercase; font-size: 0.7rem; font-weight: 800; color: #aaa; margin-bottom: 0.75rem; letter-spacing: 1px; }
+        
+        .mkt-dropdown-v4 {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--radius-sm);
+            background: var(--gray-light);
+            font-weight: 600;
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+
+        .mkt-type-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        .mkt-type-btn {
+            padding: 1rem;
+            background: var(--gray-light);
+            border: 1px solid transparent;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            color: #666;
+        }
+        .mkt-type-btn.active {
+            background: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+        }
+
+        .btn-magic-v4 {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--charcoal);
+            color: #fff;
+            border: none;
+            border-radius: 99px;
+            font-weight: 900;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+        .btn-magic-v4:hover { transform: scale(1.02); background: #000; }
+
+        /* Panel de Resultados v4 */
+        .results-header-v4 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .results-header-v4 h3 { margin: 0; font-size: 1.2rem; font-weight: 900; }
+
+        .ai-cards-v4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .ai-card-v4 {
+            background: #fff;
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .ai-card-v4 .card-top { display: flex; justify-content: space-between; align-items: center; color: var(--gold); }
+        .ai-card-v4 h4 { font-size: 0.65rem; font-weight: 800; color: #aaa; text-transform: uppercase; margin: 0; }
+        .ai-card-v4 p { font-size: 0.8rem; margin: 0; color: var(--charcoal); line-height: 1.4; }
+
+        /* Carousel Preview Style */
+        .carousel-preview-v4 {
+            background: var(--off-white);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .phone-frame {
+            width: 160px;
+            aspect-ratio: 9/16;
+            background: #000;
+            border-radius: 20px;
+            border: 4px solid #333;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .phone-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .slide-num { position: absolute; top: 10px; right: 10px; color: #fff; font-size: 1.5rem; font-weight: 900; opacity: 0.5; }
+
+        /* Caption Box */
+        .caption-box-v4 {
+            background: #fff;
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+        .caption-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+        .caption-top h4 { font-size: 0.7rem; font-weight: 800; color: #aaa; text-transform: uppercase; margin: 0; }
+
+        /* Quick Replies v4 */
+        .qr-section-v4 { margin-top: 4rem; }
+        .qr-section-v4 h3 { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .qr-grid-v4 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .qr-item-v4 {
+            background: #fff;
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .qr-item-v4:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+        .qr-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--gold); background: var(--off-white); }
+        .qr-info h4 { margin: 0; font-size: 0.85rem; }
+        .qr-info p { margin: 0; font-size: 0.7rem; color: #888; }
     </style>
 </head>
 <body>
@@ -471,71 +690,174 @@
             </div>
         </div>
 
-        <!-- Vista Marketing: AI STUDIO -->
+        <!-- Vista Marketing: AI STUDIO v4 LUMINOUS -->
         <div id="view-marketing" class="view-section">
-            <div class="mkt-studio">
-                <div class="mkt-header">
-                    <h2>MARKETING <span>MAKER AI</span></h2>
-                    <p style="color: #64748b; margin-top: 5px;">Generación automática de activos publicitarios para tus productos.</p>
+            <div class="mkt-v4-container">
+                <!-- Sidebar Interno -->
+                <div class="mkt-sidebar">
+                    <button class="mkt-side-btn active" onclick="setMktSubView('create')">
+                        <span class="material-symbols-outlined">add_circle</span> Crear
+                    </button>
+                    <button class="mkt-side-btn" onclick="setMktSubView('results')">
+                        <span class="material-symbols-outlined">analytics</span> Resultados
+                    </button>
+                    <button class="mkt-side-btn" onclick="setMktSubView('quick')">
+                        <span class="material-symbols-outlined">chat_bubble</span> Quick Replies
+                    </button>
+                    <button class="mkt-side-btn" onclick="setMktSubView('settings')">
+                        <span class="material-symbols-outlined">settings</span> Settings
+                    </button>
+                    
+                    <div class="btn-upgrade">Upgrade to VIP</div>
                 </div>
 
-                <div class="mkt-layout">
-                    <!-- Col 1: Config -->
-                    <div class="mkt-panel">
-                        <h3><span class="material-symbols-outlined">target</span> 1. PRODUCTO OBJETIVO</h3>
-                        <select id="mktProductSelect" class="mkt-select-btn" onchange="runAiMarketing()">
-                            <option value="">Cargando productos...</option>
-                        </select>
-
-                        <h3><span class="material-symbols-outlined">grid_view</span> 2. FORMATO REDES</h3>
-                        <div class="mkt-option-grid">
-                            <div class="mkt-opt active" onclick="setMktFormat('POST', this)">POST (FEED)</div>
-                            <div class="mkt-opt" onclick="setMktFormat('STORY', this)">STORY / REEL</div>
+                <!-- Main Content Area -->
+                <div class="mkt-content">
+                    <div id="mkt-subview-create">
+                        <div class="mkt-v4-header">
+                            <h2>✨ Crear Nueva Campaña ¡Qué Glam!</h2>
+                            <p>Define la esencia de tu próxima transformación.</p>
                         </div>
 
-                        <h3><span class="material-symbols-outlined">palette</span> 3. ESTILO DE DISEÑO</h3>
-                        <div class="mkt-option-grid">
-                            <div class="mkt-opt active" onclick="setMktStyle('MODERNO', this)">MODERNO</div>
-                            <div class="mkt-opt" onclick="setMktStyle('ELEGANTE', this)">ELEGANTE</div>
-                            <div class="mkt-opt" onclick="setMktStyle('VIBRANTE', this)">VIBRANTE</div>
-                            <div class="mkt-opt" onclick="setMktStyle('MINIMAL', this)">MINIMAL</div>
-                        </div>
-                        
-                        <button class="btn-regenerate" onclick="runAiMarketing()">
-                            <span class="material-symbols-outlined">auto_awesome</span> REGENERAR CONTENIDO
-                        </button>
-                    </div>
+                        <div class="mkt-v4-grid">
+                            <!-- Col 1: Upload Box -->
+                            <div class="upload-box-v4" onclick="document.getElementById('mktImageUrl').focus()">
+                                <div class="upload-icon-circle">
+                                    <span class="material-symbols-outlined">cloud_upload</span>
+                                </div>
+                                <p><strong>Arrastra tu contenido aquí</strong></p>
+                                <p style="font-size: 0.75rem; color: #888; max-width: 200px;">O selecciona una imagen de tu galería (PNG, JPG, MP4)</p>
+                                <button class="btn" style="background:#f0f0f0; color:#333; font-size: 0.7rem; padding: 0.5rem 1rem; border-radius: 8px;">Examinar Archivos</button>
+                            </div>
 
-                    <!-- Col 2: Preview -->
-                    <div style="display:flex; flex-direction:column; gap:1rem;">
-                        <div class="mkt-preview-final">
-                            <span class="material-symbols-outlined loader-mkt" id="mktLoader" style="font-size: 3rem; animation: spin 2s linear infinite;">sync</span>
-                            <div class="mkt-canvas-container">
-                                <canvas id="mktCanvas" width="1080" height="1080"></canvas>
+                            <!-- Col 2: Config -->
+                            <div>
+                                <div class="mkt-control-group">
+                                    <label>Técnica de Aplicación</label>
+                                    <select id="mktTechnique" class="mkt-dropdown-v4">
+                                        <option>Punto Americano</option>
+                                        <option>Microchip</option>
+                                        <option>Nudo Brasileño</option>
+                                        <option>Adhesivas Premium</option>
+                                    </select>
+                                </div>
+
+                                <div class="mkt-control-group">
+                                    <label>Tipo de Contenido</label>
+                                    <div class="mkt-type-grid" id="mktTypeGridV4">
+                                        <button class="mkt-type-btn active" onclick="setMktTypeV4('Reel', this)">Reel/TikTok</button>
+                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Post', this)">Post Único</button>
+                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Carousel_Trans', this)">Carrusel Transformación</button>
+                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Carousel_Edu', this)">Carrusel Educativo</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mkt-control-group">
+                                    <label>Imagen de Referencia (URL)</label>
+                                    <input type="text" id="mktImageUrl" placeholder="https://..." class="mkt-dropdown-v4">
+                                </div>
+
+                                <button class="btn-magic-v4" id="btnMagicV4" onclick="runAiMarketingV4()">
+                                    Generar Magia ✨
+                                </button>
                             </div>
                         </div>
-                        <button class="btn" style="width:100%; background:#2563eb; padding: 1.2rem;" onclick="downloadMktImage()">
-                            <span class="material-symbols-outlined">download</span> DESCARGAR IMAGEN FINAL
-                        </button>
-                    </div>
 
-                    <!-- Col 3: Copy -->
-                    <div class="mkt-copy-card">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <h3 style="margin:0;"><span class="material-symbols-outlined">short_text</span> COPY SOCIAL</h3>
-                            <button class="btn-asset" onclick="copyMktText('mktCopyResult')">COPIAR</button>
+                        <!-- Panel de Resultados AI (Graphic Parity) -->
+                        <div id="mktResultsV4">
+                            <div class="results-header-v4">
+                                <h3>Panel de Resultados AI</h3>
+                                <span class="badge" style="background:var(--gold-light); color:var(--charcoal); font-size: 0.65rem; padding: 0.3rem 0.6rem; border-radius: 99px; font-weight: 800;">Borrador Generado</span>
+                            </div>
+
+                            <div class="ai-cards-v4">
+                                <div class="ai-card-v4">
+                                    <div class="card-top">
+                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">record_voice_over</span>
+                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resHookV4').innerText)">content_copy</span>
+                                    </div>
+                                    <h4>Gancho (Hook)</h4>
+                                    <p id="resHookV4" style="font-weight: 600;">"¿Cansada de esperar años para tener el largo de tus sueños? 😱 Mira esto..."</p>
+                                </div>
+                                <div class="ai-card-v4">
+                                    <div class="card-top">
+                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">menu_book</span>
+                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resBodyV4').innerText)">content_copy</span>
+                                    </div>
+                                    <h4>Cuerpo (Body)</h4>
+                                    <p id="resBodyV4">Mostramos el proceso real de aplicación Punto Americano. Indoloro y natural.</p>
+                                </div>
+                                <div class="ai-card-v4">
+                                    <div class="card-top">
+                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">touch_app</span>
+                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resCtaV4').innerText)">content_copy</span>
+                                    </div>
+                                    <h4>Call to Action</h4>
+                                    <p id="resCtaV4">"Comenta 'GLAM' y agenda tu diagnóstico capilar gratuito hoy mismo."</p>
+                                </div>
+                                <div class="ai-card-v4">
+                                    <div class="card-top">
+                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">music_note</span>
+                                        <span class="material-symbols-outlined" style="font-size: 1rem;">open_in_new</span>
+                                    </div>
+                                    <h4>Audio Tendencia</h4>
+                                    <p id="resAudioV4">Lounge Luxe - Instrumental (15.2k Reels)</p>
+                                </div>
+                            </div>
+
+                            <div class="mkt-control-group">
+                                <label>Previsualización de Carrusel</label>
+                                <div class="carousel-preview-v4" id="carouselPreviewV4">
+                                    <div class="phone-frame"><span class="slide-num">1</span><img src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+1" id="previewS1"></div>
+                                    <div class="phone-frame"><span class="slide-num">2</span><img src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+2" id="previewS2"></div>
+                                    <div class="phone-frame"><span class="slide-num">3</span><img src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+3" id="previewS3"></div>
+                                </div>
+                            </div>
+
+                            <div class="caption-box-v4">
+                                <div class="caption-top">
+                                    <h4>Caption + Hashtags</h4>
+                                    <span style="font-size: 0.75rem; color: var(--gold); font-weight: 800; cursor: pointer;" onclick="copySimpleText(document.getElementById('resCaptionV4').innerText)">COPIAR TODO</span>
+                                </div>
+                                <p id="resCaptionV4" style="font-size: 0.85rem; color: #555; line-height: 1.6; margin: 0;">¡La transformación que mereces está a un click! ✨ Nuestra técnica de Punto Americano no solo añade largo, añade confianza. Realizada por expertos, cuidando siempre la salud de tu cabello natural.\n\n#QueGlam #HairExtensions #PuntoAmericano #LuxuryHair #SalonLife #CambioDeLook #HairGoals</p>
+                            </div>
                         </div>
-                        <div id="mktCopyResult" class="mkt-copy-text">Selecciona un producto para generar el texto...</div>
-                    </div>
-                </div>
 
-                <!-- Extras -->
-                <div style="margin-top: 3rem; border-top: 1px solid #eee; padding-top: 2rem;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
-                        <h3 style="color:var(--charcoal)">BIBLIOTECA DE RECURSOS</h3>
-                        <button class="btn btn-sm" onclick="exportCarouselZip()">Exportar Todo (.ZIP)</button>
+                        <!-- Quick Replies Section (Inside Content) -->
+                        <div class="qr-section-v4">
+                            <h3>🚀 Respuestas Rápidas para Clientes</h3>
+                            <div class="qr-grid-v4" id="quickRepliesV4">
+                                <div class="qr-item-v4" onclick="copySimpleText('📍 Estamos ubicados en Santiago, RM. Servicio 100% a domicilio.')">
+                                    <div class="qr-icon"><span class="material-symbols-outlined">location_on</span></div>
+                                    <div class="qr-info">
+                                        <h4>Cobertura y Ubicación</h4>
+                                        <p>Clic para Copiar</p>
+                                    </div>
+                                </div>
+                                <div class="qr-item-v4">
+                                    <div class="qr-icon"><span class="material-symbols-outlined">payments</span></div>
+                                    <div class="qr-info">
+                                        <h4>Métodos de Pago</h4>
+                                        <p>Clic para Copiar</p>
+                                    </div>
+                                </div>
+                                <div class="qr-item-v4">
+                                    <div class="qr-icon"><span class="material-symbols-outlined">calendar_today</span></div>
+                                    <div class="qr-info">
+                                        <h4>Agendar Cita</h4>
+                                        <p>Clic para Copiar</p>
+                                    </div>
+                                </div>
+                                <div class="qr-item-v4">
+                                    <div class="qr-icon"><span class="material-symbols-outlined">sparkles</span></div>
+                                    <div class="qr-info">
+                                        <h4>Cuidados Post-Aplicación</h4>
+                                        <p>Clic para Copiar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="asset-gallery" id="assetGallery"></div>
                 </div>
             </div>
         </div>
@@ -915,244 +1237,84 @@
             updateMktProductSelect();
         });
 
-        // ================= MARKETING LAB LOGIC =================
-        let fullProductList = [];
-        
-        async function updateMktProductSelect() {
-            const select = document.getElementById('mktProductSelect');
-            const { data } = await _supabase.from('productos').select('*');
-            if(data) {
-                fullProductList = data;
-                let html = '<option value="">-- Elige un producto --</option>';
-                data.forEach(p => html += `<option value="${p.id}">${p.nombre}</option>`);
-                select.innerHTML = html;
-            }
+        // ================= MARKETING LAB v4: LUMINOUS EDITORIAL =================
+        let mktTypeV4 = 'Reel';
+
+        function setMktSubView(view) {
+            // Logica para cambiar sub-vistas si fuera necesario (Create, Results, etc)
+            // Por ahora, el mockup muestra todo en una sola pantalla "Crear"
+            console.log("Cambiando a sub-view:", view);
+            document.querySelectorAll('.mkt-side-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
         }
 
-        window.setMktImg = function(src) {
-            document.getElementById('mktIgImg').src = src;
-            document.getElementById('mktTtImg').src = src;
-        }
-
-        window.updateMktPreview = function() {
-            const prodId = document.getElementById('mktProductSelect').value;
-            const vibe = document.getElementById('mktVibe').value;
-            const prod = fullProductList.find(p => p.id === prodId);
-            
-            if(!prod) return;
-
-            setMktImg(prod.imagen_url);
-
-            const copies = {
-                elegante: {
-                    ig: `<strong>queglam_original</strong> Redefine tu elegancia con ${prod.nombre}. ✨ Calidad superior para mujeres que no aceptan menos. <br><br>#Lujo #HairStyle #ExtensionesPremium`,
-                    tt: `La sofisticación que tu cabello merece. 💖 Descubre ${prod.nombre}. #Viral #Beauty`
-                },
-                divertido: {
-                    ig: `<strong>queglam_original</strong> ¡Pelo largo y actitud al 100%! 💁‍♀️ Dile hola a tu nueva versión con ${prod.nombre}. ¿Lista para brillar? <br><br>#CambioDeLook #HairGoals`,
-                    tt: `POV: Te sientes la protagonista con tus nuevas extensiones. 😂🔥 #HairCare #Funny`
-                },
-                oferta: {
-                    ig: `<strong>queglam_original</strong> 🚨 ¡PROMO ALERT! 🚨 Consigue ${prod.nombre} a un precio que no creerás. Solo por tiempo limitado. <br><br>#Oferta #CyberHair #Descuento`,
-                    tt: `¡No te quedes fuera! 😱 Aprovecha el mejor precio en ${prod.nombre}. #Sale #Chile`
-                }
-            };
-
-            document.getElementById('mktIgCaption').innerHTML = copies[vibe].ig;
-            document.getElementById('mktIgCaptionText').innerText = copies[vibe].ig.replace(/<[^>]*>/g, '');
-            document.getElementById('mktTtDesc').innerHTML = copies[vibe].tt + '<div class="tt-tags">#hair #glam #chile</div>';
-            document.getElementById('mktTtDescText').innerText = copies[vibe].tt + " #hair #glam #chile";
-        }
-
-        window.copyMktText = function(id) {
-            const text = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(text).then(() => alert("¡Texto copiado al portapapeles! 📋"));
-        }
-
-        // Init marketing tab
-        updateMktProductSelect();
-        loadAssets();
-
-        // ================= MARKETING LAB v3: AI STUDIO =================
-        let activeFormat = 'POST';
-        let activeStyle = 'MODERNO';
-
-        function setMktFormat(fmt, el) {
-            activeFormat = fmt;
-            el.parentElement.querySelectorAll('.mkt-opt').forEach(opt => opt.classList.remove('active'));
+        function setMktTypeV4(type, el) {
+            mktTypeV4 = type;
+            document.querySelectorAll('#mktTypeGridV4 .mkt-type-btn').forEach(btn => btn.classList.remove('active'));
             el.classList.add('active');
-            runAiMarketing();
         }
 
-        function setMktStyle(stl, el) {
-            activeStyle = stl;
-            el.parentElement.querySelectorAll('.mkt-opt').forEach(opt => opt.classList.remove('active'));
-            el.classList.add('active');
-            runAiMarketing();
-        }
-
-        async function updateMktProductSelect() {
-            const select = document.getElementById('mktProductSelect');
-            const { data } = await _supabase.from('productos').select('*');
-            if(data) {
-                fullProductList = data;
-                let html = '<option value="">-- Selecciona Producto --</option>';
-                data.forEach(p => html += `<option value="${p.id}">${p.nombre}</option>`);
-                select.innerHTML = html;
-            }
-        }
-
-        async function runAiMarketing() {
-            const prodId = document.getElementById('mktProductSelect').value;
-            if(!prodId) return;
-
-            const prod = fullProductList.find(p => p.id === prodId);
-            const canvas = document.getElementById('mktCanvas');
-            const ctx = canvas.getContext('2d');
-            const loader = document.getElementById('mktLoader');
-
-            loader.style.display = 'block';
-
-            // 1. Drawing Template Background
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        async function runAiMarketingV4() {
+            const technique = document.getElementById('mktTechnique').value;
+            const imageUrl = document.getElementById('mktImageUrl').value;
+            const btn = document.getElementById('btnMagicV4');
             
-            // Background according to style
-            if(activeStyle === 'MODERNO') {
-                const grad = ctx.createLinearGradient(0,0,0,1080);
-                grad.addColorStop(0, '#f8fafc');
-                grad.addColorStop(1, '#e2e8f0');
-                ctx.fillStyle = grad;
-            } else if(activeStyle === 'ELEGANTE') {
-                ctx.fillStyle = '#0f172a';
-            } else if(activeStyle === 'VIBRANTE') {
-                ctx.fillStyle = '#FF69B4'; // Primary Pink
-            } else {
-                ctx.fillStyle = '#ffffff';
+            if(!imageUrl) {
+                alert("Euse, por favor ingresa una URL de imagen para que la IA haga su magia ✨");
+                return;
             }
-            ctx.fillRect(0,0, 1080, 1080);
 
-            // 2. Load Product Image
-            const img = new Image();
-            img.crossOrigin = "anonymous";
-            img.onload = function() {
-                // Style: Photo Frame
-                if(activeStyle === 'MODERNO' || activeStyle === 'MINIMAL') {
-                    ctx.save();
-                    ctx.shadowBlur = 40;
-                    ctx.shadowColor = 'rgba(0,0,0,0.1)';
-                    const frameSize = 800;
-                    const x = (1080 - frameSize)/2;
-                    const y = 80;
-                    
-                    // Draw White Box
-                    ctx.fillStyle = '#fff';
-                    roundRect(ctx, x, y, frameSize, frameSize, 40, true, false);
-                    
-                    // Draw Image inside (centered)
-                    const iw = img.width; const ih = img.height;
-                    const scale = (frameSize * 0.7) / Math.max(iw, ih);
-                    const sw = iw * scale; const sh = ih * scale;
-                    ctx.drawImage(img, x + (frameSize - sw)/2, y + (frameSize - sh)/2, sw, sh);
-                    
-                    // 3. Text
-                    ctx.fillStyle = '#000';
-                    ctx.textAlign = 'center';
-                    ctx.font = '900 64px Nunito';
-                    ctx.fillText(prod.nombre.toUpperCase(), 540, 950);
-                    
-                    ctx.font = '400 32px Nunito';
-                    ctx.fillStyle = '#64748b';
-                    ctx.fillText('¡QUÉ GLAM! HAIR EXTENSIONS', 540, 1010);
-                    ctx.restore();
-                } else {
-                    // ELEGANTE / VIBRANTE (Full Screenish)
-                    const scale = 1080 / Math.max(img.width, img.height);
-                    const sw = img.width * scale; const sh = img.height * scale;
-                    ctx.globalAlpha = 0.5;
-                    ctx.drawImage(img, (1080-sw)/2, (1080-sh)/2, sw, sh);
-                    ctx.globalAlpha = 1;
+            btn.disabled = true;
+            btn.innerHTML = `<span class="material-symbols-outlined spin" style="animation: spin 2s linear infinite;">sync</span> GENERANDO...`;
+            
+            try {
+                // Simulamos la espera de la IA
+                await new Promise(r => setTimeout(r, 2000));
+                
+                // Actualizamos los campos con "Magia"
+                document.getElementById('resHookV4').innerText = `"¿Buscas un cambio radical con ${technique}? ✨ Mira lo que logramos hoy..."`;
+                document.getElementById('resBodyV4').innerText = `Aplicación profesional de ${technique}. Resultado natural, ligero y con el brillo característico de ¡Qué Glam!.`;
+                document.getElementById('resCtaV4').innerText = `Comenta 'CABELLO' para enviarte toda la información y precios por DM.`;
+                document.getElementById('resAudioV4').innerText = `Luxury Hair Vibe - Official (Trending Audio)`;
+                
+                // Imágenes de previsualización (usando la misma URL para el ejemplo)
+                document.getElementById('previewS1').src = imageUrl;
+                document.getElementById('previewS2').src = imageUrl;
+                document.getElementById('previewS3').src = imageUrl;
 
-                    ctx.fillStyle = 'rgba(0,0,0,0.4)';
-                    ctx.fillRect(0, 800, 1080, 280);
+                document.getElementById('resCaptionV4').innerText = `✨ Transformación ¡Qué Glam! ✨\n\n¿Lista para el largo de tus sueños con la técnica ${technique}? Cuidamos cada detalle para que luzcas increíble.\n\n📍 Servicio a domicilio en Santiago\n✅ Calidad Premium garantizada\n\n#QueGlam #Extensiones #PeloLindo #Santiago #Belleza #HairGoals`;
 
-                    ctx.fillStyle = '#fff';
-                    ctx.textAlign = 'center';
-                    ctx.font = '900 80px Nunito';
-                    ctx.fillText(prod.nombre, 540, 920);
-                }
+                alert("¡Magia generada con éxito, Euse! ✨");
 
-                loader.style.display = 'none';
-                generateCopies(prod);
-            };
-            img.src = prod.imagen_url;
+            } catch (error) {
+                console.error(error);
+                alert("Hubo un pequeño problema técnico con la magia. Inténtalo de nuevo.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `Generar Magia ✨`;
+            }
         }
 
-        function generateCopies(prod) {
-            const res = document.getElementById('mktCopyResult');
-            const text = `✨ DESCUBRIMIENTO ✨\n\n"${prod.nombre}" ya está disponible en ¡Qué Glam!. \nUna experiencia que redefine tu look.\n\n#QueGlam #HairExtensions #Chile #Belleza\n\n#${prod.nombre.replace(/\s/g,'')} #PeloLindo`;
-            res.innerText = text;
-        }
-
-        window.downloadMktImage = function() {
-            const canvas = document.getElementById('mktCanvas');
-            const link = document.createElement('a');
-            link.download = 'queglam_promo.jpg';
-            link.href = canvas.toDataURL('image/jpeg', 0.9);
-            link.click();
-        }
-
-        // Helper for rounded rect on canvas
-        function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-            if (typeof radius === 'undefined') radius = 5;
-            if (typeof radius === 'number') radius = {tl: radius, tr: radius, br: radius, bl: radius};
-            ctx.beginPath();
-            ctx.moveTo(x + radius.tl, y);
-            ctx.lineTo(x + width - radius.tr, y);
-            ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-            ctx.lineTo(x + width, y + height - radius.br);
-            ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
-            ctx.lineTo(x + radius.bl, y + height);
-            ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-            ctx.lineTo(x, y + radius.tl);
-            ctx.quadraticCurveTo(x, y, x + radius.tl, y);
-            ctx.closePath();
-            if (fill) ctx.fill();
-            if (stroke) ctx.stroke();
-        }
-
-        // --- Migration from V2 ---
-        let selectedCarouselIds = new Set();
-        let galleryAssets = [];
-        async function loadAssets() {
-            const container = document.getElementById('assetGallery');
-            const { data: prods } = await _supabase.from('productos').select('*');
-            galleryAssets = prods || [];
-            let gallHtml = '';
-            galleryAssets.forEach(a => {
-                gallHtml += `<div class="asset-item"><img src="${a.imagen_url}"><div class="asset-item-actions"><button class="btn-asset" onclick="downloadPreviewUrl('${a.imagen_url}')">Bajar</button></div></div>`;
+        window.copySimpleText = (text) => {
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("¡Copiado al portapapeles! 📋");
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
             });
-            container.innerHTML = gallHtml;
-        }
-        window.downloadPreviewUrl = (url) => saveAs(url, 'queglam_asset.jpg');
-        window.copyMktText = (id) => {
-            navigator.clipboard.writeText(document.getElementById(id).innerText).then(() => alert("Copiado 📋"));
-        }
-        window.exportCarouselZip = async function() {
-            alert("Exportando biblioteca...");
-            const zip = new JSZip();
-            const folder = zip.folder("queglam_assets");
-            for(let a of galleryAssets) {
-                try {
-                   const res = await fetch(a.imagen_url);
-                   const blob = await res.blob();
-                   folder.file(`pelo_${a.id.substring(0,4)}.jpg`, blob);
-                } catch(e){}
-            }
-            zip.generateAsync({type:"blob"}).then(c => saveAs(c, "biblioteca_queglam.zip"));
         }
 
-        updateMktProductSelect();
-        loadAssets();
+        // Initialize (Solo cargamos lo necesario)
+        loadData(); // Cargar calendario
+        loadProductos(); // Cargar tienda
+        
+        // Estilos para la animación de carga
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            .spin { display: inline-block; }
+        `;
+        document.head.appendChild(style);
 
         async function deleteProducto(id) {
             if(confirm("¿Eliminar este producto de la tienda?")) {
