@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+        rel="stylesheet">
     <!-- Supabase Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Zip & Download Support -->
@@ -30,8 +32,8 @@
             --radius-md: 1rem;
             --radius-sm: 0.5rem;
             --font: 'Nunito', sans-serif;
-            --shadow-soft: 0 4px 20px rgba(0,0,0,0.04);
-            --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         body {
@@ -82,9 +84,17 @@
             gap: 0.5rem;
         }
 
-        .btn:hover { background: var(--primary-dark); }
-        .btn-danger { background: #ff4d4d; }
-        .btn-danger:hover { background: #cc0000; }
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-danger {
+            background: #ff4d4d;
+        }
+
+        .btn-danger:hover {
+            background: #cc0000;
+        }
 
         /* Login Screen */
         #loginScreen {
@@ -116,7 +126,9 @@
         }
 
         /* Dashboard */
-        #dashboard { display: none; }
+        #dashboard {
+            display: none;
+        }
 
         .card {
             background: var(--white);
@@ -139,7 +151,7 @@
             border: 1px solid #eaeaea;
             border-radius: var(--radius-md);
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
             display: flex;
             flex-direction: column;
         }
@@ -200,7 +212,7 @@
             background: #f0f7ff;
             border-left: 4px solid #0066cc;
         }
-        
+
         .slot-blocked {
             background: #fffafa;
             border-left: 4px solid #cc0000;
@@ -220,7 +232,7 @@
             cursor: pointer;
             padding: 0.2rem;
             display: inline-flex;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             transition: background 0.2s;
         }
 
@@ -229,7 +241,9 @@
             border-color: #ffcccc;
         }
 
-        .delete-btn .material-symbols-outlined { font-size: 1rem; }
+        .delete-btn .material-symbols-outlined {
+            font-size: 1rem;
+        }
 
         .client-info {
             display: flex;
@@ -238,8 +252,15 @@
             margin-top: 0.5rem;
         }
 
-        .client-info span { display: flex; align-items: center; gap: 0.3rem; }
-        .client-info strong { color: var(--charcoal); }
+        .client-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .client-info strong {
+            color: var(--charcoal);
+        }
 
         .form-row {
             display: grid;
@@ -254,8 +275,13 @@
             gap: 0.5rem;
         }
 
-        .form-group label { font-weight: 700; font-size: 0.9rem; }
-        .form-group input, .form-group select {
+        .form-group label {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
             padding: 0.75rem;
             border: 1px solid #ddd;
             border-radius: 0.5rem;
@@ -283,6 +309,7 @@
             gap: 1rem;
             margin-bottom: 2rem;
         }
+
         .tab-btn {
             background: #fff;
             color: var(--charcoal);
@@ -296,13 +323,20 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .tab-btn.active {
             border-color: var(--primary);
             color: var(--primary);
         }
-        .view-section { display: none; }
-        .view-section.active { display: block; }
-        
+
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
         .product-card {
             border: 1px solid #eee;
             padding: 1rem;
@@ -312,10 +346,25 @@
             align-items: center;
             margin-bottom: 1rem;
         }
-        .product-img { width: 80px; height: 80px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid #eee; }
-        .product-info { flex: 1; }
-        .product-info h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
-        
+
+        .product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #fff;
+            border: 1px solid #eee;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
         /* Drag and Drop Zone */
         .drop-zone {
             border: 2px dashed #ccc;
@@ -326,11 +375,17 @@
             transition: all 0.2s;
             background: #fafafa;
         }
-        .drop-zone:hover, .drop-zone.dragover {
+
+        .drop-zone:hover,
+        .drop-zone.dragover {
             border-color: var(--primary);
             background: rgba(255, 105, 180, 0.05);
         }
-        .drop-zone p { margin: 0.5rem 0; }
+
+        .drop-zone p {
+            margin: 0.5rem 0;
+        }
+
         .upload-preview {
             display: none;
             align-items: center;
@@ -341,6 +396,7 @@
             border-radius: var(--radius-md);
             background: #fff;
         }
+
         /* ================= MARKETING LAB v4: LUMINOUS EDITORIAL ================= */
         .mkt-v4-container {
             display: flex;
@@ -380,9 +436,19 @@
             text-align: left;
         }
 
-        .mkt-side-btn .material-symbols-outlined { font-size: 1.2rem; }
-        .mkt-side-btn:hover { background: var(--off-white); color: var(--charcoal); }
-        .mkt-side-btn.active { background: var(--off-white); color: var(--gold); }
+        .mkt-side-btn .material-symbols-outlined {
+            font-size: 1.2rem;
+        }
+
+        .mkt-side-btn:hover {
+            background: var(--off-white);
+            color: var(--charcoal);
+        }
+
+        .mkt-side-btn.active {
+            background: var(--off-white);
+            color: var(--gold);
+        }
 
         .btn-upgrade {
             margin-top: auto;
@@ -405,9 +471,22 @@
             overflow-y: auto;
         }
 
-        .mkt-v4-header { margin-bottom: 2.5rem; }
-        .mkt-v4-header h2 { font-size: 1.8rem; font-weight: 900; margin: 0; color: var(--charcoal); }
-        .mkt-v4-header p { color: #888; margin-top: 0.5rem; font-size: 0.9rem; }
+        .mkt-v4-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .mkt-v4-header h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0;
+            color: var(--charcoal);
+        }
+
+        .mkt-v4-header p {
+            color: #888;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
 
         /* Grid de Configuración */
         .mkt-v4-grid {
@@ -431,7 +510,13 @@
             background: var(--off-white);
             transition: all 0.3s;
         }
-        .upload-box-v4:hover, .upload-box-v4.dragover { border-color: var(--gold); background: #fff; }
+
+        .upload-box-v4:hover,
+        .upload-box-v4.dragover {
+            border-color: var(--gold);
+            background: #fff;
+        }
+
         .upload-icon-circle {
             width: 60px;
             height: 60px;
@@ -444,9 +529,20 @@
         }
 
         /* Form Controls */
-        .mkt-control-group { margin-bottom: 2rem; }
-        .mkt-control-group label { display: block; text-transform: uppercase; font-size: 0.7rem; font-weight: 800; color: #aaa; margin-bottom: 0.75rem; letter-spacing: 1px; }
-        
+        .mkt-control-group {
+            margin-bottom: 2rem;
+        }
+
+        .mkt-control-group label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #aaa;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+        }
+
         .mkt-dropdown-v4 {
             width: 100%;
             padding: 1rem;
@@ -463,6 +559,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 0.75rem;
         }
+
         .mkt-type-btn {
             padding: 1rem;
             background: var(--gray-light);
@@ -475,6 +572,7 @@
             transition: all 0.2s;
             color: #666;
         }
+
         .mkt-type-btn.active {
             background: var(--gold);
             color: #fff;
@@ -498,7 +596,11 @@
             margin-top: 1rem;
             transition: transform 0.2s;
         }
-        .btn-magic-v4:hover { transform: scale(1.02); background: #000; }
+
+        .btn-magic-v4:hover {
+            transform: scale(1.02);
+            background: #000;
+        }
 
         /* Panel de Resultados v4 */
         .results-header-v4 {
@@ -507,7 +609,12 @@
             align-items: center;
             margin-bottom: 1.5rem;
         }
-        .results-header-v4 h3 { margin: 0; font-size: 1.2rem; font-weight: 900; }
+
+        .results-header-v4 h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
 
         .ai-cards-v4 {
             display: grid;
@@ -515,6 +622,7 @@
             gap: 1rem;
             margin-bottom: 2rem;
         }
+
         .ai-card-v4 {
             background: #fff;
             border: 1px solid var(--gray-medium);
@@ -525,9 +633,28 @@
             flex-direction: column;
             gap: 0.5rem;
         }
-        .ai-card-v4 .card-top { display: flex; justify-content: space-between; align-items: center; color: var(--gold); }
-        .ai-card-v4 h4 { font-size: 0.65rem; font-weight: 800; color: #aaa; text-transform: uppercase; margin: 0; }
-        .ai-card-v4 p { font-size: 0.8rem; margin: 0; color: var(--charcoal); line-height: 1.4; }
+
+        .ai-card-v4 .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gold);
+        }
+
+        .ai-card-v4 h4 {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #aaa;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .ai-card-v4 p {
+            font-size: 0.8rem;
+            margin: 0;
+            color: var(--charcoal);
+            line-height: 1.4;
+        }
 
         /* Carousel Preview Style */
         .carousel-preview-v4 {
@@ -539,6 +666,7 @@
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
+
         .phone-frame {
             width: 160px;
             aspect-ratio: 9/16;
@@ -551,8 +679,22 @@
             justify-content: center;
             position: relative;
         }
-        .phone-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .slide-num { position: absolute; top: 10px; right: 10px; color: #fff; font-size: 1.5rem; font-weight: 900; opacity: 0.5; }
+
+        .phone-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-num {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 900;
+            opacity: 0.5;
+        }
 
         /* Caption Box */
         .caption-box-v4 {
@@ -561,13 +703,43 @@
             border-radius: var(--radius-md);
             padding: 1.5rem;
         }
-        .caption-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
-        .caption-top h4 { font-size: 0.7rem; font-weight: 800; color: #aaa; text-transform: uppercase; margin: 0; }
+
+        .caption-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .caption-top h4 {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #aaa;
+            text-transform: uppercase;
+            margin: 0;
+        }
 
         /* Quick Replies v4 */
-        .qr-section-v4 { margin-top: 4rem; }
-        .qr-section-v4 h3 { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; margin-bottom: 1.5rem; }
-        .qr-grid-v4 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .qr-section-v4 {
+            margin-top: 4rem;
+        }
+
+        .qr-section-v4 h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .qr-grid-v4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
         .qr-item-v4 {
             background: #fff;
             border: 1px solid var(--gray-medium);
@@ -579,12 +751,37 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .qr-item-v4:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow-soft); }
-        .qr-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--gold); background: var(--off-white); }
-        .qr-info h4 { margin: 0; font-size: 0.85rem; }
-        .qr-info p { margin: 0; font-size: 0.7rem; color: #888; }
+
+        .qr-item-v4:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .qr-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            background: var(--off-white);
+        }
+
+        .qr-info h4 {
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .qr-info p {
+            margin: 0;
+            font-size: 0.7rem;
+            color: #888;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Login -->
@@ -607,42 +804,48 @@
         </header>
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('reservas')" id="tab-reservas"><span class="material-symbols-outlined">calendar_month</span> Calendario</button>
-            <button class="tab-btn" onclick="switchTab('tienda')" id="tab-tienda"><span class="material-symbols-outlined">shopping_bag</span> Mi Tienda</button>
-            <button class="tab-btn" onclick="switchTab('marketing')" id="tab-marketing"><span class="material-symbols-outlined">auto_awesome</span> Marketing Lab</button>
+            <button class="tab-btn active" onclick="switchTab('reservas')" id="tab-reservas"><span
+                    class="material-symbols-outlined">calendar_month</span> Calendario</button>
+            <button class="tab-btn" onclick="switchTab('tienda')" id="tab-tienda"><span
+                    class="material-symbols-outlined">shopping_bag</span> Mi Tienda</button>
+            <button class="tab-btn" onclick="switchTab('marketing')" id="tab-marketing"><span
+                    class="material-symbols-outlined">auto_awesome</span> Marketing Lab</button>
         </div>
 
         <!-- Vista Reservas -->
         <div id="view-reservas" class="view-section active">
 
-        <!-- Bloquear Horario -->
-        <div class="card">
-            <h2><span class="material-symbols-outlined">block</span> Bloquear un Horario</h2>
-            <p style="font-size: 0.9rem; margin-bottom: 1.5rem; color: #666;">Selecciona una fecha y un horario para tacharlo e impedir que las clientas puedan agendar.</p>
-            <form id="blockForm" class="form-row" style="display: flex; flex-wrap: wrap; gap: 1rem; grid-template-columns: none;">
-                <div class="form-group" style="flex: 1; min-width: 200px;">
-                    <label>Fecha a bloquear</label>
-                    <input type="date" id="blockFecha" required style="width: 100%;">
-                </div>
-                <div class="form-group" style="flex: 1; min-width: 200px;">
-                    <label>Horario</label>
-                    <select id="blockHorario" required style="width: 100%;">
-                        <option value="">Seleccione bloque</option>
-                        <option value="Mañana (10:00 - 13:00)">Mañana (10:00 - 13:00)</option>
-                        <option value="Tarde (14:00 - 17:00)">Tarde (14:00 - 17:00)</option>
-                        <option value="Atardecer (18:00 - 20:00)">Atardecer (18:00 - 20:00)</option>
-                        <option value="TODO EL DIA">Día Completo (Bloquear Todos)</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-danger" style="align-self: flex-end; height: 46px; margin-bottom: 2px;">Tachar Horario</button>
-            </form>
-        </div>
+            <!-- Bloquear Horario -->
+            <div class="card">
+                <h2><span class="material-symbols-outlined">block</span> Bloquear un Horario</h2>
+                <p style="font-size: 0.9rem; margin-bottom: 1.5rem; color: #666;">Selecciona una fecha y un horario para
+                    tacharlo e impedir que las clientas puedan agendar.</p>
+                <form id="blockForm" class="form-row"
+                    style="display: flex; flex-wrap: wrap; gap: 1rem; grid-template-columns: none;">
+                    <div class="form-group" style="flex: 1; min-width: 200px;">
+                        <label>Fecha a bloquear</label>
+                        <input type="date" id="blockFecha" required style="width: 100%;">
+                    </div>
+                    <div class="form-group" style="flex: 1; min-width: 200px;">
+                        <label>Horario</label>
+                        <select id="blockHorario" required style="width: 100%;">
+                            <option value="">Seleccione bloque</option>
+                            <option value="Mañana (10:00 - 13:00)">Mañana (10:00 - 13:00)</option>
+                            <option value="Tarde (14:00 - 17:00)">Tarde (14:00 - 17:00)</option>
+                            <option value="Atardecer (18:00 - 20:00)">Atardecer (18:00 - 20:00)</option>
+                            <option value="TODO EL DIA">Día Completo (Bloquear Todos)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-danger"
+                        style="align-self: flex-end; height: 46px; margin-bottom: 2px;">Tachar Horario</button>
+                </form>
+            </div>
 
-        <!-- Lista de Reservas -->
-        <div class="card">
-            <h2>Agenda de Clientas y Bloqueos</h2>
-            <div id="tableContainer" class="loading">Cargando datos...</div>
-        </div>
+            <!-- Lista de Reservas -->
+            <div class="card">
+                <h2>Agenda de Clientas y Bloqueos</h2>
+                <div id="tableContainer" class="loading">Cargando datos...</div>
+            </div>
         </div> <!-- Properly closing view-reservas -->
 
         <!-- Vista Tienda -->
@@ -652,20 +855,26 @@
                 <form id="productForm" class="form-row">
                     <div class="form-group" style="grid-column: 1 / -1;">
                         <label>Foto del Producto</label>
-                        <div class="drop-zone" id="dropZone" onclick="document.getElementById('prodImagenFile').click()">
-                            <span class="material-symbols-outlined" style="font-size: 3rem; color: var(--primary);">add_photo_alternate</span>
+                        <div class="drop-zone" id="dropZone"
+                            onclick="document.getElementById('prodImagenFile').click()">
+                            <span class="material-symbols-outlined"
+                                style="font-size: 3rem; color: var(--primary);">add_photo_alternate</span>
                             <p><strong>Haz clic o arrastra una imagen aquí</strong></p>
-                            <p style="font-size: 0.8rem; color: #888;">Medida ideal: Cuadrada 800x800px. El sistema la optimizará para que no pese nada.</p>
-                            <input type="file" id="prodImagenFile" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                            <p style="font-size: 0.8rem; color: #888;">Medida ideal: Cuadrada 800x800px. El sistema la
+                                optimizará para que no pese nada.</p>
+                            <input type="file" id="prodImagenFile" accept="image/png, image/jpeg, image/webp"
+                                style="display: none;">
                         </div>
                         <input type="hidden" id="prodImagen" required>
                         <div class="upload-preview" id="uploadPreview">
-                            <img id="previewImg" src="" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
+                            <img id="previewImg" src=""
+                                style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
                             <div style="flex:1">
                                 <strong style="display:block;margin-bottom:0.25rem;">¡Foto lista!</strong>
                                 <span id="previewName" style="font-size:0.85rem;color:#666;"></span>
                             </div>
-                            <button type="button" class="btn btn-danger" onclick="removeImage()" style="background:#cc0000; padding: 0.5rem 1rem;">Quitar</button>
+                            <button type="button" class="btn btn-danger" onclick="removeImage()"
+                                style="background:#cc0000; padding: 0.5rem 1rem;">Quitar</button>
                         </div>
                     </div>
                     <div class="form-group">
@@ -707,7 +916,7 @@
                     <button class="mkt-side-btn" onclick="setMktSubView('settings')">
                         <span class="material-symbols-outlined">settings</span> Settings
                     </button>
-                    
+
                     <div class="btn-upgrade">Upgrade to VIP</div>
                 </div>
 
@@ -721,14 +930,19 @@
 
                         <div class="mkt-v4-grid">
                             <!-- Col 1: Upload Box -->
-                            <div class="upload-box-v4" id="mktDropZone" onclick="document.getElementById('mktImageFile').click()">
+                            <div class="upload-box-v4" id="mktDropZone"
+                                onclick="document.getElementById('mktImageFile').click()">
                                 <div class="upload-icon-circle">
                                     <span class="material-symbols-outlined" id="mktIconV4">cloud_upload</span>
                                 </div>
                                 <p><strong id="mktPromptV4">Arrastra tu contenido aquí</strong></p>
-                                <p style="font-size: 0.75rem; color: #888; max-width: 200px;">O selecciona una imagen de tu galería (PNG, JPG, WEBP)</p>
-                                <button type="button" class="btn" style="background:#f0f0f0; color:#333; font-size: 0.7rem; padding: 0.5rem 1rem; border-radius: 8px;">Examinar Archivos</button>
-                                <input type="file" id="mktImageFile" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                                <p style="font-size: 0.75rem; color: #888; max-width: 200px;">O selecciona una imagen de
+                                    tu galería (PNG, JPG, WEBP)</p>
+                                <button type="button" class="btn"
+                                    style="background:#f0f0f0; color:#333; font-size: 0.7rem; padding: 0.5rem 1rem; border-radius: 8px;">Examinar
+                                    Archivos</button>
+                                <input type="file" id="mktImageFile" accept="image/png, image/jpeg, image/webp"
+                                    style="display: none;">
                             </div>
 
                             <!-- Col 2: Config -->
@@ -746,16 +960,22 @@
                                 <div class="mkt-control-group">
                                     <label>Tipo de Contenido</label>
                                     <div class="mkt-type-grid" id="mktTypeGridV4">
-                                        <button class="mkt-type-btn active" onclick="setMktTypeV4('Reel', this)">Reel/TikTok</button>
-                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Post', this)">Post Único</button>
-                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Carousel_Trans', this)">Carrusel Transformación</button>
-                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Carousel_Edu', this)">Carrusel Educativo</button>
+                                        <button class="mkt-type-btn active"
+                                            onclick="setMktTypeV4('Reel', this)">Reel/TikTok</button>
+                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Post', this)">Post
+                                            Único</button>
+                                        <button class="mkt-type-btn"
+                                            onclick="setMktTypeV4('Carousel_Trans', this)">Carrusel
+                                            Transformación</button>
+                                        <button class="mkt-type-btn"
+                                            onclick="setMktTypeV4('Carousel_Edu', this)">Carrusel Educativo</button>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mkt-control-group">
                                     <label>Imagen de Referencia (URL)</label>
-                                    <input type="text" id="mktImageUrl" placeholder="https://..." class="mkt-dropdown-v4">
+                                    <input type="text" id="mktImageUrl" placeholder="https://..."
+                                        class="mkt-dropdown-v4">
                                 </div>
 
                                 <button class="btn-magic-v4" id="btnMagicV4" onclick="runAiMarketingV4()">
@@ -768,38 +988,52 @@
                         <div id="mktResultsV4">
                             <div class="results-header-v4">
                                 <h3>Panel de Resultados AI</h3>
-                                <span class="badge" style="background:var(--gold-light); color:var(--charcoal); font-size: 0.65rem; padding: 0.3rem 0.6rem; border-radius: 99px; font-weight: 800;">Borrador Generado</span>
+                                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                    <button class="btn" style="background:#25D366; font-size: 0.7rem; padding: 0.4rem 0.8rem;" onclick="downloadMktImage()">Descargar Imagen Lista 🚀</button>
+                                    <span class="badge" style="background:var(--gold-light); color:var(--charcoal); font-size: 0.65rem; padding: 0.3rem 0.6rem; border-radius: 99px; font-weight: 800;">Borrador Generado</span>
+                                </div>
                             </div>
 
                             <div class="ai-cards-v4">
                                 <div class="ai-card-v4">
                                     <div class="card-top">
-                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">record_voice_over</span>
-                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resHookV4').innerText)">content_copy</span>
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 1.2rem;">record_voice_over</span>
+                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
+                                            onclick="copySimpleText(document.getElementById('resHookV4').innerText)">content_copy</span>
                                     </div>
                                     <h4>Gancho (Hook)</h4>
-                                    <p id="resHookV4" style="font-weight: 600;">"¿Cansada de esperar años para tener el largo de tus sueños? 😱 Mira esto..."</p>
+                                    <p id="resHookV4" style="font-weight: 600;">"¿Cansada de esperar años para tener el
+                                        largo de tus sueños? 😱 Mira esto..."</p>
                                 </div>
                                 <div class="ai-card-v4">
                                     <div class="card-top">
-                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">menu_book</span>
-                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resBodyV4').innerText)">content_copy</span>
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 1.2rem;">menu_book</span>
+                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
+                                            onclick="copySimpleText(document.getElementById('resBodyV4').innerText)">content_copy</span>
                                     </div>
                                     <h4>Cuerpo (Body)</h4>
-                                    <p id="resBodyV4">Mostramos el proceso real de aplicación Punto Americano. Indoloro y natural.</p>
+                                    <p id="resBodyV4">Mostramos el proceso real de aplicación Punto Americano. Indoloro
+                                        y natural.</p>
                                 </div>
                                 <div class="ai-card-v4">
                                     <div class="card-top">
-                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">touch_app</span>
-                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resCtaV4').innerText)">content_copy</span>
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 1.2rem;">touch_app</span>
+                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
+                                            onclick="copySimpleText(document.getElementById('resCtaV4').innerText)">content_copy</span>
                                     </div>
                                     <h4>Call to Action</h4>
-                                    <p id="resCtaV4">"Comenta 'GLAM' y agenda tu diagnóstico capilar gratuito hoy mismo."</p>
+                                    <p id="resCtaV4">"Comenta 'GLAM' y agenda tu diagnóstico capilar gratuito hoy
+                                        mismo."</p>
                                 </div>
                                 <div class="ai-card-v4">
                                     <div class="card-top">
-                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">music_note</span>
-                                        <span class="material-symbols-outlined" style="font-size: 1rem;">open_in_new</span>
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 1.2rem;">music_note</span>
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 1rem;">open_in_new</span>
                                     </div>
                                     <h4>Audio Tendencia</h4>
                                     <p id="resAudioV4">Lounge Luxe - Instrumental (15.2k Reels)</p>
@@ -809,18 +1043,32 @@
                             <div class="mkt-control-group">
                                 <label>Previsualización de Carrusel</label>
                                 <div class="carousel-preview-v4" id="carouselPreviewV4">
-                                    <div class="phone-frame"><span class="slide-num">1</span><img src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+1" id="previewS1"></div>
-                                    <div class="phone-frame"><span class="slide-num">2</span><img src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+2" id="previewS2"></div>
-                                    <div class="phone-frame"><span class="slide-num">3</span><img src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+3" id="previewS3"></div>
+                                    <div class="phone-frame"><span class="slide-num">1</span><img
+                                            src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+1"
+                                            id="previewS1"></div>
+                                    <div class="phone-frame"><span class="slide-num">2</span><img
+                                            src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+2"
+                                            id="previewS2"></div>
+                                    <div class="phone-frame"><span class="slide-num">3</span><img
+                                            src="https://via.placeholder.com/300x533/1A1A1A/FFFFFF?text=Slide+3"
+                                            id="previewS3"></div>
                                 </div>
                             </div>
 
                             <div class="caption-box-v4">
                                 <div class="caption-top">
                                     <h4>Caption + Hashtags</h4>
-                                    <span style="font-size: 0.75rem; color: var(--gold); font-weight: 800; cursor: pointer;" onclick="copySimpleText(document.getElementById('resCaptionV4').innerText)">COPIAR TODO</span>
+                                    <span
+                                        style="font-size: 0.75rem; color: var(--gold); font-weight: 800; cursor: pointer;"
+                                        onclick="copySimpleText(document.getElementById('resCaptionV4').innerText)">COPIAR
+                                        TODO</span>
                                 </div>
-                                <p id="resCaptionV4" style="font-size: 0.85rem; color: #555; line-height: 1.6; margin: 0;">¡La transformación que mereces está a un click! ✨ Nuestra técnica de Punto Americano no solo añade largo, añade confianza. Realizada por expertos, cuidando siempre la salud de tu cabello natural.\n\n#QueGlam #HairExtensions #PuntoAmericano #LuxuryHair #SalonLife #CambioDeLook #HairGoals</p>
+                                <p id="resCaptionV4"
+                                    style="font-size: 0.85rem; color: #555; line-height: 1.6; margin: 0;">¡La
+                                    transformación que mereces está a un click! ✨ Nuestra técnica de Punto Americano no
+                                    solo añade largo, añade confianza. Realizada por expertos, cuidando siempre la salud
+                                    de tu cabello natural.\n\n#QueGlam #HairExtensions #PuntoAmericano #LuxuryHair
+                                    #SalonLife #CambioDeLook #HairGoals</p>
                             </div>
                         </div>
 
@@ -828,8 +1076,10 @@
                         <div class="qr-section-v4">
                             <h3>🚀 Respuestas Rápidas para Clientes</h3>
                             <div class="qr-grid-v4" id="quickRepliesV4">
-                                <div class="qr-item-v4" onclick="copySimpleText('📍 Estamos ubicados en Santiago, RM. Servicio 100% a domicilio.')">
-                                    <div class="qr-icon"><span class="material-symbols-outlined">location_on</span></div>
+                                <div class="qr-item-v4"
+                                    onclick="copySimpleText('📍 Estamos ubicados en Santiago, RM. Servicio 100% a domicilio.')">
+                                    <div class="qr-icon"><span class="material-symbols-outlined">location_on</span>
+                                    </div>
                                     <div class="qr-info">
                                         <h4>Cobertura y Ubicación</h4>
                                         <p>Clic para Copiar</p>
@@ -843,7 +1093,8 @@
                                     </div>
                                 </div>
                                 <div class="qr-item-v4">
-                                    <div class="qr-icon"><span class="material-symbols-outlined">calendar_today</span></div>
+                                    <div class="qr-icon"><span class="material-symbols-outlined">calendar_today</span>
+                                    </div>
                                     <div class="qr-info">
                                         <h4>Agendar Cita</h4>
                                         <p>Clic para Copiar</p>
@@ -895,14 +1146,14 @@
         }
 
         // Login Logic
-        if(localStorage.getItem('queglam_admin_session') === 'activa') {
+        if (localStorage.getItem('queglam_admin_session') === 'activa') {
             showDashboard();
         }
 
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const pw = document.getElementById('adminPassword').value;
-            if(pw === PASSWORD_CORRECTA) {
+            if (pw === PASSWORD_CORRECTA) {
                 localStorage.setItem('queglam_admin_session', 'activa');
                 showDashboard();
             } else {
@@ -952,7 +1203,7 @@
             const hoyMonth = String(dateStrObj.getMonth() + 1).padStart(2, '0');
             const hoyDay = String(dateStrObj.getDate()).padStart(2, '0');
             const hoyStr = `${hoyYear}-${hoyMonth}-${hoyDay}`;
-            
+
             const dataFutura = data.filter(d => d.fecha >= hoyStr); // Ignoramos reservas pasadas
 
             const bloquesDisponibles = [
@@ -963,20 +1214,20 @@
 
             // Generar los próximos 14 días
             let html = '<div class="calendar-grid">';
-            
-            for(let i=0; i<14; i++) {
+
+            for (let i = 0; i < 14; i++) {
                 let dateObj = new Date();
                 dateObj.setDate(dateObj.getDate() + i);
-                
+
                 const year = dateObj.getFullYear();
                 const month = String(dateObj.getMonth() + 1).padStart(2, '0');
                 const day = String(dateObj.getDate()).padStart(2, '0');
                 const isoDate = `${year}-${month}-${day}`;
-                
+
                 // Formatear nombre del día
                 const options = { weekday: 'long', day: 'numeric', month: 'short' };
                 const dateDisplay = dateObj.toLocaleDateString('es-CL', options);
-                
+
                 html += `
                 <div class="day-card">
                     <div class="day-header">
@@ -1000,7 +1251,7 @@
                         `;
                     } else {
                         const esBloqueo = reserva.servicio === 'BLOQUEO';
-                        
+
                         if (esBloqueo) {
                             html += `
                                 <div class="slot slot-blocked">
@@ -1058,7 +1309,7 @@
                     "Tarde (14:00 - 17:00)",
                     "Atardecer (18:00 - 20:00)"
                 ];
-                
+
                 const inserts = horarios.map(h => ({
                     nombre: 'ADMIN',
                     telefono: '000',
@@ -1101,9 +1352,9 @@
 
         // Delete Item (Libera)
         async function deleteItem(id) {
-            if(confirm("¿Estás seguro de eliminar este registro? Si es una reserva, se borrará en la base de datos y quedará el horario libre. Si es un bloqueo, se liberará.")) {
+            if (confirm("¿Estás seguro de eliminar este registro? Si es una reserva, se borrará en la base de datos y quedará el horario libre. Si es un bloqueo, se liberará.")) {
                 const { error } = await _supabase.from('reservas').delete().eq('id', id);
-                if(error) {
+                if (error) {
                     alert("No se pudo borrar. Puede que permisos de DELETE no estén configurados en Supabase.");
                 } else {
                     loadData();
@@ -1116,7 +1367,7 @@
             productosContainer.innerHTML = 'Cargando productos...';
             // Intentamos cargar la tabla nueva. Si falla, avisamos sutilmente.
             const { data, error } = await _supabase.from('productos').select('*').order('created_at', { ascending: false });
-            
+
             if (error) {
                 productosContainer.innerHTML = '<span style="color:red">La tabla "productos" aún no existe o no tiene permisos. ¡Recuerda crearla en Supabase!</span>';
                 return;
@@ -1172,17 +1423,17 @@
             }
             previewName.textContent = file.name;
             const reader = new FileReader();
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 const img = new Image();
-                img.onload = function() {
+                img.onload = function () {
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext('2d');
-                    
+
                     // Resolución ideal máx 800x800 manteniendo propiedades
                     const MAX_WIDTH = 800; const MAX_HEIGHT = 800;
                     let width = img.width; let height = img.height;
 
-                    if (width > height) { if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; } } 
+                    if (width > height) { if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; } }
                     else { if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; } }
 
                     canvas.width = width; canvas.height = height;
@@ -1192,7 +1443,7 @@
                     const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
                     previewImg.src = dataUrl;
                     prodImagenInput.value = dataUrl; // A CAJA OCULTA (base64)
-                    
+
                     dropZone.style.display = 'none';
                     uploadPreview.classList.add('active');
                 };
@@ -1201,7 +1452,7 @@
             reader.readAsDataURL(file);
         }
 
-        window.removeImage = function() {
+        window.removeImage = function () {
             fileInput.value = "";
             prodImagenInput.value = "";
             previewImg.src = "";
@@ -1211,7 +1462,7 @@
 
         productForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             if (!document.getElementById('prodImagen').value) {
                 alert("Por favor sube o arrastra una foto antes de guardar el producto.");
                 return;
@@ -1229,7 +1480,7 @@
             }]);
 
             if (error) alert('Error guardando el producto: ' + error.message);
-            
+
             btn.disabled = false;
             btn.textContent = "Guardar Producto";
             productForm.reset();
@@ -1261,14 +1512,14 @@
         function processMktFile(file) {
             if (!file.type.startsWith('image/')) { alert("Por favor, sube solo imágenes."); return; }
             const reader = new FileReader();
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 const img = new Image();
-                img.onload = function() {
+                img.onload = function () {
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext('2d');
                     const MAX_WIDTH = 800; const MAX_HEIGHT = 800;
                     let width = img.width; let height = img.height;
-                    if (width > height) { if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; } } 
+                    if (width > height) { if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; } }
                     else { if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; } }
                     canvas.width = width; canvas.height = height;
                     ctx.drawImage(img, 0, 0, width, height);
@@ -1301,19 +1552,19 @@
             const contentType = mktTypeV4;
             const imageUrl = document.getElementById('mktImageUrl').value;
             const btn = document.getElementById('btnMagicV4');
-            
-            if(!imageUrl) {
+
+            if (!imageUrl) {
                 alert("Euse, por favor selecciona una imagen o ingresa una URL para que la IA haga su magia ✨");
                 return;
             }
 
             btn.disabled = true;
             btn.innerHTML = `<span class="material-symbols-outlined spin" style="animation: spin 2s linear infinite;">sync</span> GENERANDO...`;
-            
+
             try {
                 // Simulamos la espera de la IA con variaciones según técnica y tipo
                 await new Promise(r => setTimeout(r, 2000));
-                
+
                 const variations = {
                     'Punto Americano': {
                         hook: `"¿Cansada de esperar años para tener el largo de tus sueños con Punto Americano? 😱 Mira esto..."`,
@@ -1338,25 +1589,25 @@
                 };
 
                 const content = variations[technique] || variations['Punto Americano'];
-                
+
                 // Ajuste según tipo de contenido
                 let prefix = "";
-                if(contentType === 'Reel') prefix = "🎬 Reel Script: ";
-                if(contentType === 'Post') prefix = "📸 Post: ";
-                if(contentType === 'Carousel_Trans') prefix = "🎠 Carrusel (Antes/Después): ";
-                if(contentType === 'Carousel_Edu') prefix = "📖 Carrusel Tips: ";
+                if (contentType === 'Reel') prefix = "🎬 Reel Script: ";
+                if (contentType === 'Post') prefix = "📸 Post: ";
+                if (contentType === 'Carousel_Trans') prefix = "🎠 Carrusel (Antes/Después): ";
+                if (contentType === 'Carousel_Edu') prefix = "📖 Carrusel Tips: ";
 
                 document.getElementById('resHookV4').innerText = `${prefix}${content.hook}`;
                 document.getElementById('resBodyV4').innerText = content.body;
                 document.getElementById('resCtaV4').innerText = content.cta;
                 document.getElementById('resAudioV4').innerText = contentType === 'Reel' ? `Luxury Hair Vibe - Official (Trending Audio)` : "N/A (Static Post)";
-                
+
                 // Imágenes de previsualización
                 document.getElementById('previewS1').src = imageUrl;
                 document.getElementById('previewS2').src = imageUrl;
                 document.getElementById('previewS3').src = imageUrl;
 
-                document.getElementById('resCaptionV4').innerText = `✨ Transformación ¡Qué Glam! ✨\n\n¿Lista para el largo de tus sueños con la técnica ${technique}? Cuidamos cada detalle para que luzcas increíble.\n\n📍 Servicio a domicilio en Santiago\n✅ Calidad Premium garantizada\n\n#QueGlam #Extensiones #PeloLindo #Santiago #Belleza #HairGoals #${technique.replace(/\s/g,'')}`;
+                document.getElementById('resCaptionV4').innerText = `✨ Transformación ¡Qué Glam! ✨\n\n¿Lista para el largo de tus sueños con la técnica ${technique}? Cuidamos cada detalle para que luzcas increíble.\n\n📍 Servicio a domicilio en Santiago\n✅ Calidad Premium garantizada\n\n#QueGlam #Extensiones #PeloLindo #Santiago #Belleza #HairGoals #${technique.replace(/\s/g, '')}`;
 
                 alert("¡Magia generada con éxito, Euse! ✨");
 
@@ -1378,10 +1629,75 @@
             });
         }
 
+        // ================= DOWNLOAD MARKETING IMAGE (CANVAS ENGINE) =================
+        window.downloadMktImage = async function() {
+            const imageUrl = document.getElementById('mktImageUrl').value;
+            const hook = document.getElementById('resHookV4').innerText;
+            const cta = document.getElementById('resCtaV4').innerText;
+
+            if(!imageUrl) { alert("Sube una imagen primero, Euse."); return; }
+
+            // Crear canvas de alta resolución
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            img.onload = function() {
+                canvas.width = 1080;
+                canvas.height = 1350;
+
+                const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+                const x = (canvas.width / 2) - (img.width / 2) * scale;
+                const y = (canvas.height / 2) - (img.height / 2) * scale;
+                ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+
+                const gr = ctx.createLinearGradient(0, canvas.height * 0.6, 0, canvas.height);
+                gr.addColorStop(0, "rgba(0,0,0,0)");
+                gr.addColorStop(1, "rgba(0,0,0,0.85)");
+                ctx.fillStyle = gr;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = "#FF69B4";
+                ctx.font = "900 40px Nunito, sans-serif";
+                ctx.textAlign = "center";
+                ctx.fillText("¡QUÉ GLAM!", canvas.width / 2, 100);
+
+                ctx.fillStyle = "#FFFFFF";
+                ctx.font = "900 65px Nunito, sans-serif";
+                ctx.textAlign = "center";
+                
+                const words = hook.split(' ');
+                let line = '';
+                let yHook = canvas.height * 0.75;
+                for(let n = 0; n < words.length; n++) {
+                    let testLine = line + words[n] + ' ';
+                    let metrics = ctx.measureText(testLine);
+                    if (metrics.width > canvas.width * 0.85 && n > 0) {
+                        ctx.fillText(line, canvas.width / 2, yHook);
+                        line = words[n] + ' ';
+                        yHook += 80;
+                    } else {
+                        line = testLine;
+                    }
+                }
+                ctx.fillText(line, canvas.width / 2, yHook);
+
+                ctx.fillStyle = "#C5A059";
+                ctx.font = "800 45px Nunito, sans-serif";
+                ctx.fillText(cta, canvas.width / 2, canvas.height - 120);
+
+                const link = document.createElement('a');
+                link.download = `que-glam-marketing-${Date.now()}.jpg`;
+                link.href = canvas.toDataURL('image/jpeg', 0.9);
+                link.click();
+            };
+            img.src = imageUrl;
+        }
+
         // Initialize (Solo cargamos lo necesario)
         loadData(); // Cargar calendario
         loadProductos(); // Cargar tienda
-        
+
         // Estilos para la animación de carga
         const style = document.createElement('style');
         style.innerHTML = `
@@ -1391,12 +1707,13 @@
         document.head.appendChild(style);
 
         async function deleteProducto(id) {
-            if(confirm("¿Eliminar este producto de la tienda?")) {
+            if (confirm("¿Eliminar este producto de la tienda?")) {
                 const { error } = await _supabase.from('productos').delete().eq('id', id);
-                if(error) alert('Error eliminando producto');
+                if (error) alert('Error eliminando producto');
                 else loadProductos();
             }
         }
     </script>
 </body>
+
 </html>
