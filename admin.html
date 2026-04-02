@@ -934,117 +934,81 @@
 
                 <!-- Main Content Area -->
                 <div class="mkt-content">
-                    <div id="mkt-subview-create">
-                        <div class="mkt-v4-header">
-                            <h2>✨ Crear Nueva Campaña ¡Qué Glam!</h2>
-                            <p>Define la esencia de tu próxima transformación.</p>
-                        </div>
-
-                        <div class="mkt-v4-grid">
-                            <!-- Col 1: Upload Box -->
-                            <div class="upload-box-v4" id="mktDropZone"
-                                onclick="document.getElementById('mktImageFile').click()">
-                                <div class="upload-icon-circle">
-                                    <span class="material-symbols-outlined" id="mktIconV4">cloud_upload</span>
-                                </div>
-                                <p><strong id="mktPromptV4">Arrastra tu contenido aquí</strong></p>
-                                <p style="font-size: 0.75rem; color: #888; max-width: 200px;">O selecciona una imagen de
-                                    tu galería (PNG, JPG, WEBP)</p>
-                                <button type="button" class="btn"
-                                    style="background:#f0f0f0; color:#333; font-size: 0.7rem; padding: 0.5rem 1rem; border-radius: 8px;">Examinar
-                                    Archivos</button>
-                                <input type="file" id="mktImageFile" accept="image/png, image/jpeg, image/webp"
-                                    style="display: none;">
+                    <div id="mkt-subview-create" class="mkt-lab-grid" style="padding: 1.5rem; gap: 2rem;">
+                        <!-- Col 1: Editor Maestro -->
+                        <div class="mkt-controls-side">
+                            <div class="mkt-v4-header" style="margin-bottom: 1rem;">
+                                <h2 style="font-size: 1.2rem;">✨ Studio ¡Qué Glam! ULTIMATE</h2>
+                                <p style="font-size: 0.75rem;">Diseño editorial para Redes Sociales.</p>
                             </div>
 
-                            <!-- Col 2: Config -->
-                            <div>
-                                <div class="mkt-control-group">
-                                    <label>Técnica de Aplicación</label>
-                                    <select id="mktTechnique" class="mkt-dropdown-v4">
-                                        <option>Punto Americano</option>
-                                        <option>Microchip</option>
-                                        <option>Nudo Brasileño</option>
-                                        <option>Adhesivas Premium</option>
-                                    </select>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                <div class="upload-box-v4" id="mktDropZone" onclick="document.getElementById('mktImageFile').click()" style="padding: 1rem; min-height: 100px;">
+                                    <span class="material-symbols-outlined" style="font-size: 2rem; color: var(--gold);">add_photo_alternate</span>
+                                    <p style="font-size: 0.65rem; font-weight: 700;">SUBIR FOTO</p>
+                                    <input type="file" id="mktImageFile" style="display: none" accept="image/*">
+                                    <input type="hidden" id="mktImageUrl">
                                 </div>
-
-                                <div class="mkt-control-group">
-                                    <label>Tipo de Contenido</label>
-                                    <div class="mkt-type-grid" id="mktTypeGridV4">
-                                        <button class="mkt-type-btn active"
-                                            onclick="setMktTypeV4('Reel', this)">Reel/TikTok</button>
-                                        <button class="mkt-type-btn" onclick="setMktTypeV4('Post', this)">Post
-                                            Único</button>
-                                        <button class="mkt-type-btn"
-                                            onclick="setMktTypeV4('Carousel_Trans', this)">Carrusel
-                                            Transformación</button>
-                                        <button class="mkt-type-btn"
-                                            onclick="setMktTypeV4('Carousel_Edu', this)">Carrusel Educativo</button>
-                                    </div>
-                                </div>
-
-                                <div class="mkt-control-group">
-                                    <label>Imagen de Referencia (URL)</label>
-                                    <input type="text" id="mktImageUrl" placeholder="https://..."
-                                        class="mkt-dropdown-v4">
-                                </div>
-
-                                <button class="btn-magic-v4" id="btnMagicV4" onclick="runAiMarketingV4()">
-                                    Generar Magia ✨
+                                <button class="btn" onclick="runAiMarketingV4()" style="background: var(--pink-gradient); border-radius: 12px; font-weight: 800; font-size: 0.8rem; box-shadow: 0 4px 15px rgba(255,105,180,0.25);">
+                                    <span class="material-symbols-outlined">auto_awesome</span> ¡MAGIA CON IA!
                                 </button>
                             </div>
-                        </div>
 
-                        <!-- Panel de Resultados AI (Graphic Parity) -->
-                        <div id="mktResultsV4">
-                            <div class="results-header-v4">
-                                <h3>Panel de Resultados AI</h3>
-                                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                                    <button class="btn" style="background:#25D366; font-size: 0.7rem; padding: 0.4rem 0.8rem;" onclick="downloadMktImage()">Descargar Imagen Lista 🚀</button>
-                                    <span class="badge" style="background:var(--gold-light); color:var(--charcoal); font-size: 0.65rem; padding: 0.3rem 0.6rem; border-radius: 99px; font-weight: 800;">Borrador Generado</span>
+                            <div id="mktResultsV4">
+                                <div class="ai-cards-v4">
+                                    <div class="ai-card-v4" style="border-left: 4px solid var(--gold); background: white;">
+                                        <h4 style="color:var(--gold); display:flex; justify-content:space-between;">GANCHO (HOOK) ✏️ 
+                                            <span class="material-symbols-outlined" style="font-size: 0.8rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resHookV4').innerText)">content_copy</span>
+                                        </h4>
+                                        <p id="resHookV4" contenteditable="true" oninput="renderMktCanvas()" style="font-weight: 700; outline: none; min-height: 40px;"></p>
+                                    </div>
+                                    <div class="ai-card-v4" style="background: #fdfdfd; opacity: 0.8;">
+                                        <h4 style="font-size: 0.65rem;">BODY (IA) 💡</h4>
+                                        <p id="resBodyV4" contenteditable="true" style="font-size: 0.7rem; color: #555; outline: none;"></p>
+                                        <button class="btn" style="padding: 2px 6px; font-size: 0.6rem; margin-top: 5px;" onclick="applyToHook(document.getElementById('resBodyV4').innerText)">Pasar a Foto 🆙</button>
+                                    </div>
+                                    <div class="ai-card-v4" style="border-left: 4px solid var(--charcoal); background: white;">
+                                        <h4 style="color:var(--charcoal); display:flex; justify-content:space-between;">CIERRE (CTA) ✏️
+                                            <span class="material-symbols-outlined" style="font-size: 0.8rem; cursor:pointer;" onclick="copySimpleText(document.getElementById('resCtaV4').innerText)">content_copy</span>
+                                        </h4>
+                                        <p id="resCtaV4" contenteditable="true" oninput="renderMktCanvas()" style="font-weight: 700; outline: none; min-height: 40px;"></p>
+                                    </div>
+                                </div>
+
+                                <div class="mkt-controls-compact" style="margin-top: 1rem;">
+                                    <div style="grid-column: span 2; border-bottom: 1px solid #eee; padding-bottom: 0.4rem;">
+                                        <label>TÍTULO EN IMAGEN 🎀</label>
+                                        <input type="text" id="mktLogoText" value="¡QUÉ GLAM!" style="width: 100%; font-size: 0.85rem; padding: 6px; border: 1px solid #ddd; border-radius: 4px; font-weight: 800; color: var(--pink);" oninput="renderMktCanvas()">
+                                    </div>
+                                    <div><label>POS. TÍTULO (Y)</label><input type="range" id="mktLogoPos" min="20" max="300" value="80" oninput="renderMktCanvas()"></div>
+                                    <div><label>TAM. TÍTULO</label><input type="range" id="mktLogoSize" min="10" max="80" value="35" oninput="renderMktCanvas()"></div>
+                                    <div><label>POS. GANCHO (Y)</label><input type="range" id="mktHookPos" min="0.4" max="0.9" step="0.01" value="0.75" oninput="renderMktCanvas()"></div>
+                                    <div><label>TAM. GANCHO</label><input type="range" id="mktHookSize" min="20" max="100" value="60" oninput="renderMktCanvas()"></div>
+                                    <div><label>POS. CIERRE (Y)</label><input type="range" id="mktCtaPos" min="0.8" max="0.98" step="0.01" value="0.92" oninput="renderMktCanvas()"></div>
+                                    <div><label>Sombra (Overlay)</label><input type="range" id="mktOverlay" min="0" max="1" step="0.05" value="0.7" oninput="renderMktCanvas()"></div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="ai-cards-v4">
-                                <div class="ai-card-v4">
-                                    <div class="card-top">
-                                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">record_voice_over</span>
-                                        <div style="display:flex; gap: 0.5rem;">
-                                            <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.6rem; background: var(--gold);" onclick="document.getElementById('resHookV4').innerText = '...'; renderMktCanvas();">Borrar</button>
-                                            <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
-                                            onclick="copySimpleText(document.getElementById('resHookV4').innerText)">content_copy</span>
-                                        </div>
-                                    </div>
-                                    <h4>Gancho (Hook) ✏️</h4>
-                                    <p id="resHookV4" contenteditable="true" oninput="renderMktCanvas()" style="font-weight: 600; border: 1px dashed transparent; padding: 5px; border-radius: 4px; outline: none; transition: border 0.3s;"></p>
-                                </div>
-                                <div class="ai-card-v4">
-                                    <div class="card-top">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 1.2rem;">menu_book</span>
-                                        <div style="display:flex; gap: 0.5rem;">
-                                            <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.6rem; background: var(--charcoal);" onclick="applyToHook(document.getElementById('resBodyV4').innerText)">Usar como Gancho</button>
-                                            <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
-                                            onclick="copySimpleText(document.getElementById('resBodyV4').innerText)">content_copy</span>
-                                        </div>
-                                    </div>
-                                    <h4>Cuerpo (Body) ✏️</h4>
-                                    <p id="resBodyV4" contenteditable="true" style="border: 1px dashed transparent; padding: 5px; border-radius: 4px; outline: none; transition: border 0.3s;"></p>
-                                </div>
-                                <div class="ai-card-v4">
-                                    <div class="card-top">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 1.2rem;">touch_app</span>
-                                        <div style="display:flex; gap: 0.5rem;">
-                                            <button class="btn" style="padding: 0.2rem 0.5rem; font-size: 0.6rem; background: var(--gold);" onclick="renderMktCanvas()">Aplicar</button>
-                                            <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
-                                            onclick="copySimpleText(document.getElementById('resCtaV4').innerText)">content_copy</span>
-                                        </div>
-                                    </div>
-                                    <h4>Call to Action ✏️</h4>
-                                    <p id="resCtaV4" contenteditable="true" oninput="renderMktCanvas()" style="border: 1px dashed transparent; padding: 5px; border-radius: 4px; outline: none; transition: border 0.3s;"></p>
-                                </div>/p>
+                        <!-- Col 2: Preview Fijo -->
+                        <div class="mkt-preview-side" style="margin-top: 0;">
+                            <div class="mkt-preview-title">✅ DISEÑO TERMINADO</div>
+                            
+                            <div id="mktPreviewPlaceholder" style="background: rgba(255,255,255,0.03); aspect-ratio: 1080/1350; border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #555;">
+                                <span class="material-symbols-outlined" style="font-size: 2rem;">image</span>
+                                <p style="font-size: 0.65rem;">EL PREVIEW APARECERÁ AQUÍ</p>
+                            </div>
+
+                            <div id="mktPreviewContainer" style="display: none; box-shadow: 0 20px 80px rgba(0,0,0,0.8); border-radius: 8px; overflow: hidden;">
+                                <img id="mktRealPreview" src="" style="width: 100%; display: block;">
+                            </div>
+
+                            <button class="btn" style="width: 100%; margin-top: 1.5rem; background: var(--gold-gradient); color: white; padding: 1.2rem; font-weight: 900; box-shadow: 0 10px 40px rgba(0,0,0,0.4);" onclick="downloadMktImage()">
+                                <span class="material-symbols-outlined">download</span> DESCARGAR PARA INSTAGRAM
+                            </button>
+                        </div>
+                    </div>
+                </div>/p>
                                 </div>
                                 <div class="ai-card-v4">
                                     <div class="card-top">
