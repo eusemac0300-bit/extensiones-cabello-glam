@@ -779,6 +779,8 @@
             font-size: 0.7rem;
             color: #888;
         }
+        .ai-card-v4 p[contenteditable="true"]:hover { border-color: var(--gold) !important; background: #fffaf0; }
+        .ai-card-v4 p[contenteditable="true"]:focus { border-color: var(--gold) !important; border-style: solid !important; background: #fffaf0; }
     </style>
 </head>
 
@@ -998,13 +1000,11 @@
                                 <div class="ai-card-v4">
                                     <div class="card-top">
                                         <span class="material-symbols-outlined"
-                                            style="font-size: 1.2rem;">record_voice_over</span>
-                                        <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
+                                            style="font-size:                                         <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
                                             onclick="copySimpleText(document.getElementById('resHookV4').innerText)">content_copy</span>
                                     </div>
-                                    <h4>Gancho (Hook)</h4>
-                                    <p id="resHookV4" style="font-weight: 600;">"¿Cansada de esperar años para tener el
-                                        largo de tus sueños? 😱 Mira esto..."</p>
+                                    <h4>Gancho (Hook) - ¡Puedes editarlo! ✏️</h4>
+                                    <p id="resHookV4" contenteditable="true" oninput="renderMktCanvas()" style="font-weight: 600; border: 1px dashed transparent; padding: 5px; border-radius: 4px; outline: none; transition: border 0.3s;"></p>
                                 </div>
                                 <div class="ai-card-v4">
                                     <div class="card-top">
@@ -1013,9 +1013,8 @@
                                         <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
                                             onclick="copySimpleText(document.getElementById('resBodyV4').innerText)">content_copy</span>
                                     </div>
-                                    <h4>Cuerpo (Body)</h4>
-                                    <p id="resBodyV4">Mostramos el proceso real de aplicación Punto Americano. Indoloro
-                                        y natural.</p>
+                                    <h4>Cuerpo (Body) - ¡Puedes editarlo! ✏️</h4>
+                                    <p id="resBodyV4" contenteditable="true" style="border: 1px dashed transparent; padding: 5px; border-radius: 4px; outline: none; transition: border 0.3s;"></p>
                                 </div>
                                 <div class="ai-card-v4">
                                     <div class="card-top">
@@ -1024,9 +1023,9 @@
                                         <span class="material-symbols-outlined" style="font-size: 1rem; cursor:pointer;"
                                             onclick="copySimpleText(document.getElementById('resCtaV4').innerText)">content_copy</span>
                                     </div>
-                                    <h4>Call to Action</h4>
-                                    <p id="resCtaV4">"Comenta 'GLAM' y agenda tu diagnóstico capilar gratuito hoy
-                                        mismo."</p>
+                                    <h4>Call to Action - ¡Puedes editarlo! ✏️</h4>
+                                    <p id="resCtaV4" contenteditable="true" oninput="renderMktCanvas()" style="border: 1px dashed transparent; padding: 5px; border-radius: 4px; outline: none; transition: border 0.3s;"></p>
+                                </div>/p>
                                 </div>
                                 <div class="ai-card-v4">
                                     <div class="card-top">
